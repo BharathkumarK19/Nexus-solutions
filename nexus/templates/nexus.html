@@ -1,0 +1,1194 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sun Nexus Solutions</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
+</head>
+<style>
+    /*
+FONT SIZE SYSTEM (px)
+    10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98         
+
+SPACING SYSTEM (px)
+    2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif; 
+}
+
+body {
+  background: #f5f7fa;
+  color: #fff;
+  font-family: "Inter", sans-serif; 
+  animation: fadeIn 1s ease-in; 
+}
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #fff4e6;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid #555;
+  animation: slideInDown 0.5s ease-out; 
+}
+
+
+@keyframes slideInDown {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  width: 5rem;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.3); 
+}
+
+.brand-name {
+  font-weight: 600;
+  color: #1a237e;
+  font-size: 2.4rem;
+  transition: transform 0.3s ease; 
+}
+
+.brand-name:hover {
+  transform: scale(1.05); 
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1a237e;
+  font-weight: 500;
+  font-size: 2rem;
+  transition: color 0.3s, transform 0.3s ease; 
+}
+
+.nav-links a:hover {
+  color: #ffb300;
+  transform: translateY(-2px); 
+}
+
+
+.menu-toggle {
+  display: none;
+  font-size: 2.5rem;
+  color: #1a237e;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+
+.menu-toggle:hover {
+  transform: scale(1.2); 
+}
+
+
+.hero {
+  height: 93.2vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.701)), url(https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-09%20at%2011.53.58%20AM.jpeg?updatedAt=1759997023804);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 0 20px;
+  margin-top: 60px;
+  animation: fadeIn 1.5s ease-in; 
+}
+
+.hero-content h1 {
+  font-size: 8rem;
+  font-weight: 800;
+}
+
+.gradient-text {
+  font-weight: 700;
+  animation: pulse 2s infinite; 
+}
+
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.yellow {
+  color: #ffcc00;
+}
+
+.white {
+  color: #f5f5f5;
+}
+
+.subtitle {
+  font-size: 2rem;
+  margin-top: 15px;
+  color: #fff;
+  animation: fadeInUp 1s ease-in 0.5s; 
+}
+
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.cta-btn {
+  background: #fff;
+  border: 3px solid orange;
+  padding: 12px 30px;
+  margin-top: 25px;
+  border-radius: 8px;
+  font-size: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.cta-btn:hover {
+  background: #fdd835;
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #e9f1ff;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: slideInRight 0.5s ease-out; 
+  }
+
+ 
+  @keyframes slideInRight {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+
+.about {
+  background: #fff4e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  animation: fadeIn 1s ease-in; 
+}
+
+.about-container {
+  background: #a88eff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  border-radius: 16px;
+  max-width: 1100px;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
+.about-text {
+  flex: 1 1 450px;
+}
+
+.about-text h2 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.about-text span {
+  color: #fff89a;
+}
+
+.about-text p {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  margin-bottom: 25px;
+}
+
+.learn-more-btn {
+  background: white;
+  color: #5b4bff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 2rem;
+  border: 2px solid orange;
+}
+
+.learn-more-btn:hover {
+  background: #f5f5f5;
+  transform: scale(1.1); 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+}
+
+.about-image {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  transition: transform 0.5s ease; 
+}
+
+.about-image img:hover {
+  transform: scale(1.05); 
+}
+
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .about-text {
+    margin-bottom: 30px;
+  }
+}
+
+
+.why-nexus {
+  background: #fff4e6;
+  text-align: center;
+  padding: 100px 40px;
+}
+
+.why-nexus h2 {
+  font-size: 3.5rem;
+  color: #1a237e;
+  margin-bottom: 10px;
+}
+
+.why-nexus span {
+  color: #fbbf24;
+}
+
+.why-intro {
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.why-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+}
+
+.why-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  padding: 30px 40px;
+  max-width: 700px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #555;
+  animation: fadeInUp 1s ease-in; 
+}
+
+.why-card:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.why-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.why-icon {
+  font-size: 3.5rem;
+  background: #ffeb3b;
+  color: #1a237e;
+  padding: 20px;
+  border-radius: 50%;
+  margin-right: 30px;
+  transition: transform 0.4s ease;
+}
+
+.why-card:hover .why-icon {
+  transform: rotate(360deg); 
+}
+
+.why-card.reverse .why-icon {
+  margin-left: 30px;
+  margin-right: 0;
+}
+
+.why-text {
+  text-align: left;
+}
+
+.why-text h3 {
+  color: #1a237e;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.why-text p {
+  color: #444;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.why-text small {
+  color: #777;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .why-card,
+  .why-card.reverse {
+    flex-direction: column;
+    text-align: center;
+    padding: 25px 20px;
+  }
+
+  .why-icon {
+    margin: 0 0 15px 0;
+  }
+
+  .why-text {
+    text-align: center;
+  }
+}
+
+
+.internship-section {
+  padding: 5rem 10%;
+  background-color: #fff4e6;
+  animation: fadeIn 1s ease-in; 
+}
+
+.internship-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background-color: #2f2f2f;
+  color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.internship-content {
+  flex: 1;
+  padding: 3rem;
+}
+
+.internship-content .small-text {
+  color: #d4af37;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.internship-content h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.internship-content .description {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.btn-apply {
+  display: inline-block;
+  background-color: #004aad;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 2rem;
+}
+
+.btn-apply:hover {
+  background-color: #0066ff;
+  transform: scale(1.1); 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+}
+
+.internship-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.internship-image img {
+  width: 100%;
+  max-width: 500px;
+  object-fit: cover;
+  padding: 20px 10px;
+  transition: transform 0.5s ease; 
+}
+
+.internship-image img:hover {
+  transform: scale(1.05); 
+}
+
+
+@media (max-width: 768px) {
+  .why-container,
+  .internship-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .internship-content {
+    padding: 2rem;
+  }
+
+  .internship-image {
+    border-radius: 15px;
+  }
+}
+
+
+.internship-promo {
+  display: flex;
+  justify-content: center;
+  padding: 36px 16px;
+  background: transparent;
+}
+
+.promo-card {
+  width: 100%;
+  max-width: 920px;
+  background: linear-gradient(180deg, #fff9d6 0%, #fff4c0 100%);
+  border: 1px solid rgba(210, 170, 36, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(3, 8, 20, 0.06);
+  padding: 22px 26px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounceIn 1s ease-in;
+}
+
+
+.promo-badge {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: #e33a3a;
+  color: #fff;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 14px;
+  font-size: 1.3rem;
+  letter-spacing: 0.6px;
+  animation: pulse 2s infinite; 
+}
+
+
+.promo-body {
+  max-width: 920px;
+  text-align: center;
+}
+
+.promo-title {
+  font-size: 1.45rem;
+  color: #6b3a00;
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+.promo-desc {
+  color: #3b3b3b;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto 18px;
+  font-size: 1rem;
+}
+
+#projOnlyTitle {
+  font-size: 1.7rem;
+}
+
+#fullPackTitle {
+  font-size: 1.7rem;
+}
+
+
+.promo-cta {
+  display: inline-block;
+  background: linear-gradient(90deg, #0b63d6, #0066ff);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(11, 99, 214, 0.18);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.promo-cta:hover {
+  transform: scale(1.1); 
+  box-shadow: 0 10px 25px rgba(11, 99, 214, 0.22);
+}
+
+
+.opportunities {
+  background: #fff4e6;
+  padding: 60px 18px;
+}
+
+.opportunities .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 3rem;
+  color: #0b3a7a;
+  margin-bottom: 8px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.section-sub {
+  color: #444;
+  max-width: 900px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+  font-size: 1.5rem;
+}
+
+
+.opportunity-boxes {
+  display: flex;
+  gap: 26px;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+
+.opportunity-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 26px;
+  flex: 1 1 48%;
+  min-width: 300px;
+  box-shadow: 0 6px 20px rgba(20, 30, 60, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(12, 35, 80, 0.03);
+  animation: fadeInUp 1s ease-in; 
+}
+
+.opportunity-card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
+}
+
+
+.card-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-icon {
+  flex-shrink: 0;
+  transition: transform 0.4s ease; 
+}
+
+.opportunity-card:hover .card-icon {
+  transform: scale(1.2); 
+}
+
+.card-header h3 {
+  font-size: 1.15rem;
+  color: #0b3a7a;
+  font-weight: 700;
+}
+
+
+.card-lead {
+  color: #333;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+
+.card-list {
+  margin: 8px 0 12px 18px;
+  padding: 0;
+  font-size: 1.4rem;
+}
+
+.elgi {
+  font-size: 1.6rem;
+  font-weight: 700;
+  list-style: none;
+}
+
+.card-list li {
+  margin: 8px 0;
+  line-height: 1.45;
+  color: #444;
+}
+
+
+.card-highlight {
+  color: #0b3a7a;
+  font-style: italic;
+  margin: 12px 0;
+  font-size: 1.3rem;
+}
+
+
+.apply-btn {
+  display: block;
+  margin-top: 18px;
+  text-align: center;
+  background: linear-gradient(90deg, #0b63d6, #0066ff);
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(6, 90, 210, 0.12);
+  transition: transform 0.13s ease, box-shadow 0.13s ease;
+  width: 100%;
+  font-size: 1.4rem;
+}
+
+.apply-btn:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 12px 30px rgba(6, 90, 210, 0.16);
+}
+
+.project-only {
+  border-left: 6px solid #0b63d6;
+}
+
+.full-package {
+  border-left: 6px solid #0b8a4b;
+}
+
+
+@media (max-width: 900px) {
+  .opportunity-boxes {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .opportunity-card {
+    flex-basis: 100%;
+  }
+
+  .promo-card {
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .promo-title {
+    font-size: 1.25rem;
+  }
+
+  .promo-desc {
+    font-size: 0.98rem;
+  }
+}
+
+
+.custom-project {
+  text-align: center;
+  padding: 70px 20px;
+  background: #fff4e6;
+  animation: fadeIn 1s ease-in; 
+}
+
+.custom-project h2 {
+  color: #0b3a7a;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.custom-project p {
+  color: #555;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.get-in-touch-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #6a00ff, #b000ff);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 1.5rem;
+}
+
+.get-in-touch-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(107, 0, 255, 0.3);
+}
+
+
+.footer {
+  background: #0b1a36;
+  color: #fff;
+  padding: 50px 20px 30px;
+  font-size: 0.95rem;
+  animation: fadeIn 1s ease-in; 
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1 1 45%;
+  min-width: 260px;
+}
+
+.footer-section h3 {
+  color: #ffcc00;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section a {
+  color: #eaeaea;
+  line-height: 1.6;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #ffcc00;
+  transform: translateX(5px); 
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.social-links a {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  background: #ffcc00;
+  color: #000;
+  transform: scale(1.1); 
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 30px;
+  padding-top: 18px;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+</style>
+<body>
+   <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-09%20at%2011.53.59%20AM.jpeg?updatedAt=1759996825248" alt="Sun Nexus Logo" class="nav-logo" />
+        <span class="brand-name">Sun Nexus Solutions</span>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'projects' %}">Projects</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'mentor_ship' %}">Mentorship</a></li>
+            <!-- <li><a class="dropdown-item" href="#">Custom Website Development</a></li> -->
+            <li><a class="dropdown-item" href="{% url 'web_dev' %}">Website Development</a></li>
+          </ul>
+        </li>
+        <li><a href="{% url 'about_us' %}">About Us</a></li>
+      </ul>
+
+      <div class="menu-toggle" id="menuToggle">
+        ☰
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="gradient-text">
+        <span class="yellow">Sun Nexus</span>
+        <span class="white">Solutions</span>
+      </h1>
+      <p class="subtitle">Sun Nexus solutions club - Where innovation meets heart</p>
+      <a href="/getintouch"><button class="cta-btn" >Discover More</button></a>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-container">
+      <div class="about-text">
+        <h2>About <span>Sun Nexus Solutions</span></h2>
+        <p>
+          We are an innovative student club dedicated to engineering creativity and technology.  
+          At Sun Nexus Solutions, we help students explore, design, and develop real-world projects  
+          that enhance problem-solving skills and spark innovation.
+        </p>
+        <button class="learn-more-btn">Learn More</button>
+      </div>
+
+      <div class="about-image">
+        <img src="https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-09%20at%2011.53.59%20AM%20(1).jpeg?updatedAt=1759999022791" alt="About Us Graphic">
+      </div>
+    </div>
+  </section>
+
+  <section class="why-nexus">
+    <h2>Why <span>Nexus Solutions?</span></h2>
+    <p class="why-intro">
+      At Nexus Solutions, we are more than just a tech club — we are a driven community of innovators, 
+      problem-solvers, and creators. Here’s why you should collaborate with us:
+    </p>
+
+    <div class="why-container">
+      <div class="why-card">
+        <div class="why-icon">💡</div>
+        <div class="why-text">
+          <h3>Cutting-Edge Research</h3>
+          <p>
+            We push the boundaries of AI, IoT, and Software Development — bridging the gap 
+            between academia and industry.
+          </p>
+          <small>AI, IoT & Software Development | Research-backed solutions</small>
+        </div>
+      </div>
+
+      <div class="why-card reverse">
+        <div class="why-icon">🤝</div>
+        <div class="why-text">
+          <h3>Open for Collaborations</h3>
+          <p>
+            We partner with startups, industry experts, and academia to build impactful projects 
+            and explore innovative ideas.
+          </p>
+          <small>Industry & academic partnerships | Joint problem-solving</small>
+        </div>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">🎓</div>
+        <div class="why-text">
+          <h3>Student-Driven Innovation</h3>
+          <p>
+            We empower students through hackathons, workshops, and real-world projects, 
+            building leadership and technical skills.
+          </p>
+          <small>Hackathons & projects | Hands-on learning & skill development</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="internship-section">
+    <div class="internship-card">
+      <div class="internship-content">
+        <p class="small-text">WE’D LOVE TO CHAT!</p>
+        <h2>Join Our Internship Program</h2>
+        <p class="description">
+          Exciting opportunity! Our <strong>Summer Internship Program</strong> is now
+          open for registrations. Gain hands-on experience in
+          <strong>Python, Machine Learning, Computer Vision</strong>, and <strong>NLP</strong>.
+          Don’t miss your chance to <strong>learn, innovate, and excel!</strong>
+        </p>
+        <a href="/getintouch" class="btn-apply">Apply Now</a>
+      </div>
+      <div class="internship-image">
+        <img src="https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-09%20at%2011.53.58%20AM%20(2).jpeg?updatedAt=1759999071275" alt="Internship workspace" />
+      </div>
+    </div>
+  </section>
+
+  <section id="opportunities" class="opportunities">
+    <div class="container">
+      <h2 class="section-title">Opportunities We Offer</h2>
+      <p class="section-sub">
+        Explore our flexible plans — from standalone projects to complete packages with documentation,
+        presentations, and source code.
+      </p>
+
+      <div class="opportunity-boxes">
+        <article class="opportunity-card project-only" aria-labelledby="projOnlyTitle">
+          <header class="card-header">
+            <svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="none" stroke="#0B63D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                d="M3 17l6-6 4 4 8-8" />
+            </svg>
+            <h3 id="projOnlyTitle">Project Only</h3>
+          </header>
+
+          <p class="card-lead">
+            Get a fully functional project tailored to your needs.
+          </p>
+
+          <ul class="card-list">
+            <li>Complete working project with clean implementation</li>
+            <li>Guided walkthrough on setup and usage</li>
+            <li>One-time deployment support</li>
+          </ul>
+
+          <ul class="card-list">
+            <li class="elgi">Eligibility:</li>
+            <li>Anyone looking for a ready-made academic or professional project.</li>
+          </ul>
+          <ul class="card-list">
+            <li class="elgi">Fee:</li>
+            <li>One-time payment for the project</li>
+            <li>No hidden charges</li>
+          </ul>
+          <p class="card-highlight">
+            Perfect for students who just need the project without extras.
+          </p>
+
+          <a class="apply-btn" href="/getintouch">Apply Now</a>
+        </article>
+
+        <article class="opportunity-card full-package" aria-labelledby="fullPackTitle">
+          <header class="card-header">
+            <svg class="card-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="none" stroke="#0B8A4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                d="M20 6L9 17l-5-5" />
+            </svg>
+            <h3 id="fullPackTitle">Project + Documentation, Presentation &amp; Source Code</h3>
+          </header>
+
+          <p class="card-lead">
+            Get the complete package including project, documentation, presentation slides, and source code.
+          </p>
+
+          <ul class="card-list">
+            <li>Fully functional project tailored to your requirements</li>
+            <li>Comprehensive documentation for report submissions</li>
+            <li>Presentation slides ready for viva or demo</li>
+            <li>Complete source code with explanations</li>
+            <li>Support for setup, execution, and modifications</li>
+          </ul>
+          <ul class="card-list">
+            <li class="elgi">Eligibility:</li>
+            <li>Anyone looking for a ready-made academic or professional project.</li>
+          </ul>
+          <ul class="card-list">
+            <li class="elgi">Fee:</li>
+            <li>One-time payment for the project</li>
+            <li>No hidden charges</li>
+          </ul>
+          <p class="card-highlight">
+            Best option if you need everything — project, docs, slides, and code.
+          </p>
+
+          <a class="apply-btn" href="/getintouch">Apply Now</a>
+        </article>
+      </div> 
+    </div> 
+  </section>
+
+  <section id="custom-project" class="custom-project">
+    <div class="container">
+      <h2>Need a Custom Project</h2>
+      <p>Not sure what you want?</p>
+      <a href="/getintouch" class="get-in-touch-btn">Get In Touch</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section contact">
+        <h3>📧 Contact Us</h3>
+        <p><a href="mailto:sunnexussolutions@gmail.com">sunnexussolutions@gmail.com</a></p>
+        <p>School of Computer Science &amp; Engineering,<br>Sandip University, Nashik</p>
+      </div>
+
+      <div class="footer-section follow">
+        <h3>🔗 Follow Us</h3>
+        <p>Stay connected with us for updates, project showcases, and collaborations.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/sunnexussolutions/" aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://www.instagram.com/sun_nexus_solutions/" aria-label="Instagram">Instagram</a>
+          <a href="https://github.com/sunnexussolutions" aria-label="GitHub">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Sun Nexus Solutions. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  
+</body>
+<script>
+    
+document.addEventListener("DOMContentLoaded", () => {
+  
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const isExpanded = navLinks.classList.contains("active");
+      menuToggle.setAttribute("aria-expanded", isExpanded);
+      
+      menuToggle.textContent = isExpanded ? "✕" : "☰";
+    });
+  }
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate__animated", "animate__fadeInUp");
+        observer.unobserve(entry.target); 
+      }
+    });
+  }, observerOptions);
+
+
+  document.querySelectorAll(".why-card").forEach(card => {
+    observer.observe(card);
+  });
+
+ 
+  document.querySelectorAll(".opportunity-card").forEach(card => {
+    observer.observe(card);
+  });
+});
+</script>
+</html>

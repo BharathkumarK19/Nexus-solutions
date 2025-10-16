@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
+    <link rel="stylesheet" href="/static/css/project.css">
+    <script src="/static/js/project.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<style>
+    /*
+FONT SIZE SYSTEM (px)
+    10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+SPACING SYSTEM (px)
+    2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #fff4e6;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  animation: fadeInSmooth 1.2s ease-in; 
+}
+
+@keyframes fadeInSmooth {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #fff4e6;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid #555;
+  animation: slideInSubtle 0.8s ease-out; 
+}
+
+@keyframes slideInSubtle {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  width: 5rem;
+  margin-right: 10px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05); 
+  opacity: 0.9;
+}
+
+.brand-name {
+  font-weight: 600;
+  color: #1a237e;
+  font-size: 2.4rem;
+  transition: opacity 0.3s ease;
+}
+
+.brand-name:hover {
+  opacity: 0.8; 
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1a237e;
+  font-weight: 500;
+  font-size: 2rem;
+  transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffb300;
+  transform: translateY(-2px); 
+  opacity: 0.9;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2.5rem;
+  color: #1a237e;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.menu-toggle:hover {
+  opacity: 0.7; 
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #e9f1ff;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: fadeInDown 0.5s ease-out; 
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
+
+.banner-section {
+  background-color: #fff4e6;
+  text-align: center;
+  padding: 50px 20px;
+  position: relative;
+  z-index: 1;
+  margin-top: 60px;
+}
+
+.banner-heading {
+  font-size: 4em;
+  font-weight: 800;
+  color: #1100ff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInSmooth 1.5s ease-in-out; 
+}
+
+.banner {
+  padding: 50px 20px;
+  text-align: center;
+  display: none;
+}
+
+.banner h1 {
+  font-size: 3.5em;
+  font-weight: bold;
+  color: #ffcc00;
+  margin: 0;
+  animation: fadeInUp 1s ease-out; 
+}
+
+.banner p {
+  font-size: 1.3em;
+  color: #0f0d0d;
+  margin: 20px 0;
+  animation: fadeInUp 1.5s ease-out; 
+}
+
+.projects, .domains, .how-it-works {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 40px 20px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  width: 300px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 2px solid #ffcc00;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.7s ease-out forwards; 
+}
+
+.projects .card:nth-child(1) { animation-delay: 0.2s; }
+.projects .card:nth-child(2) { animation-delay: 0.4s; }
+.projects .card:nth-child(3) { animation-delay: 0.6s; }
+.projects .card:nth-child(4) { animation-delay: 0.8s; }
+.projects .card:nth-child(5) { animation-delay: 1.0s; }
+.projects .card:nth-child(6) { animation-delay: 1.2s; }
+.projects .card:nth-child(7) { animation-delay: 1.4s; }
+.projects .card:nth-child(8) { animation-delay: 1.6s; }
+.projects .card:nth-child(9) { animation-delay: 1.8s; }
+.projects .card:nth-child(10) { animation-delay: 2.0s; }
+.domains .card:nth-child(2) { animation-delay: 0.2s; }
+.domains .card:nth-child(3) { animation-delay: 0.4s; }
+.domains .card:nth-child(4) { animation-delay: 0.6s; }
+.how-it-works .card:nth-child(2) { animation-delay: 0.2s; }
+.how-it-works .card:nth-child(3) { animation-delay: 0.4s; }
+.how-it-works .card:nth-child(4) { animation-delay: 0.6s; }
+.how-it-works .card:nth-child(5) { animation-delay: 0.8s; }
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #ff7b00b8, #ffc300, #ffd84daa);
+  transition: height 0.3s ease;
+}
+
+.card:hover::before {
+  height: 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: #ffb300;
+  cursor: pointer;
+}
+
+.card h3 {
+  margin: 15px 0;
+  color: #1a237e;
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.card p {
+  font-size: 0.95em;
+  color: #0a0808;
+  line-height: 1.5;
+}
+
+.view-details-btn {
+  background: linear-gradient(90deg, #ff7b00b8, #ffc300, #ffd84daa);
+  border: none;
+  color: #1a237e;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.view-details-btn:hover {
+  background: linear-gradient(90deg, #ff7b00, #ffb300, #ffd700);
+  transform: scale(1.05); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+.domains .card {
+  background-color: #fff;
+}
+
+.domains .header-section {
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-out; 
+}
+
+.domains h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #1100ff;
+  font-family: "Inter", sans-serif;
+}
+
+.domains p {
+  font-size: 1.3em;
+  color: #0f0a0a;
+}
+
+.domains .card {
+  order: unset;
+}
+
+.how-it-works {
+  align-items: center;
+}
+
+.how-it-works h2 {
+  color: #1100ff;
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: 800;
+  margin-bottom: 20px;
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  animation: fadeInSmooth 1s ease-out; 
+}
+
+.how-it-works .card {
+  background-color: #fff;
+  width: 300px;
+  order: unset;
+  color: #000000;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+  animation: fadeInSmooth 0.3s ease-in;
+}
+
+.modal-content {
+  background-color: #fff4e6;
+  margin: 5% auto;
+  padding: 20px;
+  border: 2px solid #ffcc00;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  color: #1a237e;
+  position: relative;
+}
+
+.close {
+  color: #1a237e;
+  float: right;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #ffb300;
+}
+
+.modal-content h2 {
+  color: #1100ff;
+  font-size: 2.5em;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.modal-content p {
+  color: #0a0808;
+  font-size: 1.2em;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.modal-content h4 {
+  color: #1a237e;
+  font-size: 1.8em;
+  margin: 20px 0 10px 0;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.team-member {
+  background: #fff;
+  border: 2px solid #ffcc00;
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-color: #ffb300;
+}
+
+.team-member img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 3px solid #ffcc00;
+}
+
+.team-member h5 {
+  color: #1a237e;
+  font-size: 1.2em;
+  margin: 5px 0;
+  font-weight: 600;
+}
+
+.team-member p {
+  color: #0a0808;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+#closeModal {
+  background: linear-gradient(90deg, #ff7b00b8, #ffc300, #ffd84daa);
+  border: none;
+  color: #1a237e;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  margin-top: 20px;
+}
+
+#closeModal:hover {
+  background: linear-gradient(90deg, #ff7b00, #ffb300, #ffd700);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 10% auto;
+    padding: 15px;
+  }
+  
+  .team-member {
+    width: 150px;
+    padding: 10px;
+  }
+  
+  .team-member img {
+    width: 60px;
+    height: 60px;
+  }
+}
+.footer {
+  background: #0b1a36;
+  color: #fff;
+  padding: 50px 20px 30px;
+  font-size: 0.95rem;
+  animation: fadeIn 1s ease-in; 
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1 1 45%;
+  min-width: 260px;
+}
+
+.footer-section h3 {
+  color: #ffcc00;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section a {
+  color: #eaeaea;
+  line-height: 1.6;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #ffcc00;
+  transform: translateX(5px); /
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.social-links a {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  background: #ffcc00;
+  color: #000;
+  transform: scale(1.1); 
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 30px;
+  padding-top: 18px;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+</style>
+<body>
+    <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-09%20at%2011.53.59%20AM.jpeg?updatedAt=1759996825248" alt="Sun Nexus Logo" class="nav-logo" />
+        <span class="brand-name">Sun Nexus Solutions</span>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'projects' %}">Projects</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'mentor_ship' %}">Mentorship</a></li>
+            <!-- <li><a class="dropdown-item" href="#">Custom Website Development</a></li> -->
+            <li><a class="dropdown-item" href="{% url 'web_dev' %}">Website Development</a></li>
+          </ul>
+        </li>
+        <li><a href="{% url 'about_us' %}">About Us</a></li>
+      </ul>
+
+      <div class="menu-toggle" id="menuToggle">
+        ☰
+      </div>
+    </nav>
+  </header>
+    <div class="container">
+        <div class="row">
+            <div class="banner-section animate_animated animate_fadeInDown col-12" id="bannerSection">
+                <h1 class="banner-heading animate_animated animate_bounceIn gradient-text">OUR PROJECTS</h1>
+            </div>
+            <div class="projects animate_animated animate_zoomIn" id="projectsContainer">
+                <!-- Project cards will be dynamically inserted here -->
+            </div>
+            <div class="domains animate_animated animate_slideInLeft">
+                <div class="header-section animate_animated animate_fadeInUp col-12">
+                    <h1>Need a Project? Let's Build Something Amazing!</h1>
+                    <p>Turn your ideas into reality with Sun Nexus Solutions. Whether it's AI, IoT, automation, or web apps, we've got you covered!</p>
+                </div>
+                <div class="card">
+                    <h3>AI & Machine Learning</h3>
+                    <p>Predictive models, deep learning, NLP & more.</p>
+                </div>
+                <div class="card">
+                    <h3>Web & App Development</h3>
+                    <p>Full-stack websites & mobile apps.</p>
+                </div>
+                <div class="card">
+                    <h3>Data Science & Analytics</h3>
+                    <p>Data processing, analytics & insights.</p>
+                </div>
+            </div>
+            <div class="how-it-works animate_animated animate_slideInRight">
+                <h2>How It Works:</h2>
+                <div class="card">Step 1
+                    <p>Share your idea or problem statement</p>
+                </div>
+                <div class="card">Step 2
+                    <p>We analyze feasibility & provide a project plan</p>
+                </div>
+                <div class="card">Step 3
+                    <p>Development with regular updates & feedback</p>
+                </div>
+                <div class="card">Step 4
+                    <p>Project completion with deployment & documentation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDetails"></p>
+            <div id="modalTeam">
+                <h4>Team Members:</h4>
+                <div id="teamList" class="team-grid"></div>
+            </div>
+            <button id="closeModal">Close</button>
+        </div>
+    </div>
+     <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section contact">
+        <h3>📧 Contact Us</h3>
+        <p><a href="mailto:sunnexussolutions@gmail.com">sunnexussolutions@gmail.com</a></p>
+        <p>School of Computer Science &amp; Engineering,<br>Sandip University, Nashik</p>
+      </div>
+
+      <div class="footer-section follow">
+        <h3>🔗 Follow Us</h3>
+        <p>Stay connected with us for updates, project showcases, and collaborations.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/sunnexussolutions/" aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://www.instagram.com/sun_nexus_solutions/" aria-label="Instagram">Instagram</a>
+          <a href="https://github.com/sunnexussolutions" aria-label="GitHub">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Sun Nexus Solutions. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+  
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const isExpanded = navLinks.classList.contains("active");
+      menuToggle.setAttribute("aria-expanded", isExpanded);
+      menuToggle.textContent = isExpanded ? "✕" : "☰"; 
+    });
+  }
+
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (entry.target.classList.contains("projects") || entry.target.classList.contains("domains")) {
+          entry.target.classList.add("animate__animated", "animate__fadeInLeft");
+        } else if (entry.target.classList.contains("how-it-works")) {
+          entry.target.classList.add("animate__animated", "animate__fadeInRight");
+        } else {
+          entry.target.classList.add("animate__animated", "animate__fadeInUp");
+        }
+        observer.unobserve(entry.target); 
+      }
+    });
+  }, observerOptions);
+
+ 
+  document.querySelectorAll(".projects, .domains, .how-it-works, .domains .header-section, .how-it-works h2").forEach(element => {
+    observer.observe(element);
+  });
+
+
+  const projectData = {
+    "Smart Attendance System": {
+      summary: "An AI-powered attendance tracking system using facial recognition for accurate and automated record-keeping.",
+      details: "This system leverages advanced facial recognition technology powered by AI to automate attendance tracking. It ensures high accuracy, reduces manual errors, and integrates seamlessly with existing databases for real-time updates and reporting.",
+      team: [
+        { name: "Lokesh",  image: "https://ik.imagekit.io/kofq4cdghu/unnamed.jpg?updatedAt=1760094756157" },
+        
+        { name: "Varshith Naidu",  image: "https://ik.imagekit.io/kofq4cdghu/IMG-20250917-WA0086(1).jpg?updatedAt=1760094980018" }
+      ]
+    },
+    "Automated Timetable Management System": {
+      summary: "A smart scheduling system that generates optimized timetables for educational institutions based on faculty and student availability.",
+      details: "An intelligent scheduling tool designed for educational institutions. It uses optimization algorithms to create conflict-free timetables based on faculty availability, student preferences, and resource constraints, saving hours of manual planning.",
+      team: [
+        { name: "Lokesh Reddy.A",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.39.51%20AM.jpeg?updatedAt=1760073049927" },
+        { name: "Gopinadh.V",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.55.20%20AM.jpeg?updatedAt=1760074230579" },
+        { name: "Hari.K",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.29.49%20AM.jpeg?updatedAt=1760072973038" },
+         { name: "Girivardhan.K",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.37.34%20AM.jpeg?updatedAt=1760072974650" },
+        { name: "Deekshitha.M",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.37.49%20AM.jpeg?updatedAt=1760072973031" },
+        { name: "Jaya manideep.B",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.27.49%20AM.jpeg?updatedAt=1760072972669" },
+          { name: "VishnuVardhan.A",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.28.29%20AM.jpeg?updatedAt=1760072972170" },
+        { name: "Madhusudhan.M",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2011.09.30%20AM.jpeg?updatedAt=1760074790613" },
+        { name: "Bharath Kumar.K",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.29.51%20AM.jpeg?updatedAt=1760072973494" },
+      ]
+    },
+    "Crowd-Sheild": {
+      summary: "AI-powered crowd monitoring for public safety.",
+      details: "An AI-driven solution for monitoring crowds in public spaces to enhance safety. It detects unusual patterns, estimates crowd density, and alerts authorities in real-time to prevent incidents like stampedes or security breaches.",
+      team: [
+    { name: "Lokesh Reddy.A",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.39.51%20AM.jpeg?updatedAt=1760073049927" },
+        { name: "Gopinadh.V",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.55.20%20AM.jpeg?updatedAt=1760074230579" },
+        { name: "Hari.K",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.29.49%20AM.jpeg?updatedAt=1760072973038" },
+         { name: "Girivardhan.K",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.37.34%20AM.jpeg?updatedAt=1760072974650" }
+      ]
+    },
+    "Movie Recommendation": {
+      summary: "🎬 Let AI choose your next favorite movie!",
+      details: "A machine learning-based recommender system that analyzes user preferences, viewing history, and ratings to suggest personalized movies. It uses collaborative filtering and content-based algorithms for accurate recommendations.",
+      team: [
+        { name: "Jaya manideep.b",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.27.49%20AM.jpeg?updatedAt=1760072972669" }
+
+      ]
+    },
+    "Hotel Tfi Website": {
+      summary: "A website which is useful for booking food in Nashik.",
+      details: "A user-friendly web platform for booking food from   Tfi Hotel in Nashik. It features real-time menus and reviews to enhance the dining experience for users.",
+      team: [
+        { name: "Prasad.B",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2012.03.03%20PM.jpeg?updatedAt=1760078322514" },
+        { name: "Mallikarjuna.C",  image: "https://ik.imagekit.io/kofq4cdghu/IMG_20241008_135227_1_.jpg?updatedAt=1759896755572" },
+        { name: "Raghu.K",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-08%20at%2010.27.23%20AM.jpeg?updatedAt=1760072973601" },
+         { name: "Poojitha Reddy.S",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.24.52%20AM.jpeg?updatedAt=1760072972748" },
+          { name: "Shirisha.S",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-08%20at%2011.25.48%20AM.jpeg?updatedAt=1760072973509" }
+      ]
+    },
+    "Blood-Bank Management Sytem": {
+      summary: "Locate blood units in real-time.",
+      details: "A comprehensive system for managing blood banks, allowing real-time tracking of blood units, donor information, and requests. It facilitates quick matching and distribution to save lives in emergencies.",
+      team: [
+        { name: "VishnuVardhan",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.28.29%20AM.jpeg?updatedAt=1760072972170" }
+
+      ]
+    },
+    "Music Recommendation": {
+      summary: "Personalized music suggestions in real-time.",
+      details: "This system provides personalized music suggestions based on user listening habits, mood, and trends. It employs AI to analyze audio features and user feedback for real-time, tailored playlists.",
+      team: [
+        { name: "Lokesh Reddy.A",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.39.51%20AM.jpeg?updatedAt=1760073049927" }
+     
+      ]
+    },
+    "Future Weather prediction": {
+      summary: "Accurate weather forecasts for future.",
+      details: "An advanced forecasting tool that predicts future weather conditions using machine learning models trained on historical data, satellite imagery, and atmospheric patterns for high accuracy.",
+      team: [
+       { name: "Lokesh Reddy.A",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.39.51%20AM.jpeg?updatedAt=1760073049927" },
+       { name: "VishnuVardhan",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.28.29%20AM.jpeg?updatedAt=1760072972170" },
+       { name: "Deekshitha.M",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.37.49%20AM.jpeg?updatedAt=1760072973031" },
+       { name: "Shirisha.S",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-08%20at%2011.25.48%20AM.jpeg?updatedAt=1760072973509" },
+       { name: "Avinash.D",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2011.02.22%20AM.jpeg?updatedAt=1760075555781" },
+       { name: "Yashwanth.A",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.26.09%20AM.jpeg?updatedAt=1760072974135" }
+      ]
+    },
+    "AI-Powered Resume Analyzer": {
+      summary: "AI evaluates resumes for job fit.",
+      details: "An AI tool that scans and evaluates resumes against job descriptions, highlighting strengths, gaps, and fit scores. It uses NLP to provide actionable insights for recruiters and applicants.",
+      team: [
+      
+        { name: "Murali Krishna.B", image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.37.00%20AM.jpeg?updatedAt=1760072973049" }
+      ]
+    },
+    "Rain Prediction": {
+      summary: "AI forecasts rainfall with precision.",
+      details: "A precise AI model for forecasting rainfall using meteorological data, radar inputs, and historical trends. It helps in agriculture, disaster management, and urban planning with reliable predictions.",
+      team: [
+         { name: "Mallikarjuna.C",  image: "https://ik.imagekit.io/kofq4cdghu/IMG_20241008_135227_1_.jpg?updatedAt=1759896755572" },
+        { name: "Raghu.K",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-08%20at%2010.27.23%20AM.jpeg?updatedAt=1760072973601" },
+         { name: "Jaya manideep.b",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.27.49%20AM.jpeg?updatedAt=1760072972669" },
+         { name: "Hari.K",  image: "https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.29.49%20AM.jpeg?updatedAt=1760072973038" },
+          { name: "Ashish.C",  image: "https://ik.imagekit.io/kofq4cdghu/1758679225122.jpg?updatedAt=1760073049933" },
+
+      ]
+    }
+  };
+
+
+  const projectsContainer = document.getElementById("projectsContainer");
+  Object.keys(projectData).forEach((projectName, index) => {
+    const project = projectData[projectName];
+    const card = document.createElement("div");
+    card.className = "card";
+    card.style.animationDelay = `${0.2 * (index + 1)}s`;
+    card.innerHTML = `
+      <h3>${projectName}</h3>
+      <p>${project.summary}</p>
+      <a href="#" class="view-details-btn" data-project="${projectName}">View Details</a>
+    `;
+    projectsContainer.appendChild(card);
+  });
+
+  
+  const modal = document.getElementById("projectModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDetails = document.getElementById("modalDetails");
+  const teamList = document.getElementById("teamList");
+  const closeModal = document.getElementById("closeModal");
+  const closeSpan = document.querySelector(".close");
+
+  
+  function addViewDetailsListeners() {
+    document.querySelectorAll(".view-details-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const projectName = btn.getAttribute("data-project");
+        const data = projectData[projectName];
+
+        if (data) {
+          modalTitle.textContent = projectName;
+          modalDetails.textContent = data.details;
+          
+        
+          teamList.innerHTML = "";
+          data.team.forEach(member => {
+            const memberDiv = document.createElement("div");
+            memberDiv.className = "team-member";
+            memberDiv.innerHTML = `
+              <img src="${member.image}" alt="${member.name}" onerror="this.src='https://via.placeholder.com/80x80/cccccc/ffffff?text=No+Image'">
+              <h5>${member.name}</h5>
+              
+            `;
+            teamList.appendChild(memberDiv);
+          });
+          
+          modal.style.display = "block";
+          document.body.style.overflow = "hidden"; 
+        }
+      });
+    });
+  }
+
+
+  addViewDetailsListeners();
+
+  
+  function closeModalFunc() {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto"; 
+  }
+
+  closeModal.addEventListener("click", closeModalFunc);
+  closeSpan.addEventListener("click", closeModalFunc);
+
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModalFunc();
+    }
+  });
+
+  
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.style.display === "block") {
+      closeModalFunc();
+    }
+  });
+});
+</script>
+</html>

@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ac42c3b1f7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<style>
+    /*
+FONT SIZE SYSTEM (px)
+    10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+SPACING SYSTEM (px)
+    2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #fff4e6;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  animation: fadeInSmooth 1.2s ease-in; 
+}
+
+@keyframes fadeInSmooth {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #fff4e6;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 1px solid #555;
+  animation: slideInSubtle 0.8s ease-out; 
+}
+
+@keyframes slideInSubtle {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  width: 5rem;
+  margin-right: 10px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05); 
+  opacity: 0.9;
+}
+
+.brand-name {
+  font-weight: 600;
+  color: #1a237e;
+  font-size: 2.4rem;
+  transition: opacity 0.3s ease;
+}
+
+.brand-name:hover {
+  opacity: 0.8; 
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1a237e;
+  font-weight: 500;
+  font-size: 2rem;
+  transition: color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ffb300;
+  transform: translateY(-2px); 
+  opacity: 0.9;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2.5rem;
+  color: #1a237e;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.menu-toggle:hover {
+  opacity: 0.7; 
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #e9f1ff;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: fadeInDown 0.5s ease-out; 
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
+
+.hero {
+  height: 93.2vh;
+  background: black;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 0 20px;
+  margin-top: 60px;
+  animation: fadeIn 1.5s ease-in; 
+}
+
+.hero-content h1 {
+  font-size: 8rem;
+  font-weight: 800;
+}
+
+.gradient-text {
+  font-weight: 700;
+  animation: pulse 2s infinite; 
+}
+
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.yellow {
+  color: #ffcc00;
+}
+
+.white {
+  color: #f5f5f5;
+}
+
+.subtitle {
+  font-size: 2rem;
+  margin-top: 15px;
+  color: #fff;
+  animation: fadeInUp 1s ease-in 0.5s; 
+}
+
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+  margin-top: 80px;
+}
+
+.who-we-are-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-heading {
+  font-size: 3em;
+  color: #1a237e;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.section-text {
+  font-size: 1.5em;
+  color: #0a0808;
+  text-align: center;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+}
+.section-text span {
+  color: #ffcc00; 
+  font-weight: 1000;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+
+.feature-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  width: 300px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 2px solid #ffcc00;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.7s ease-out forwards; 
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #ff7b00b8, #ffc300, #ffd84daa);
+  transition: height 0.3s ease;
+}
+
+.card:hover::before {
+  height: 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: #ffb300;
+  cursor: pointer;
+}
+
+.card h3 {
+  margin: 15px 0;
+  color: #1a237e;
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.card p {
+  font-size: 0.95em;
+  color: #000000;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.team-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.team-card {
+  background-color: #fff;
+  border-radius: 15px;
+  width: 250px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 2px solid #ffcc00;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.7s ease-out forwards; 
+}
+
+.team-card:nth-child(1) { animation-delay: 0.2s; }
+.team-card:nth-child(2) { animation-delay: 0.4s; }
+.team-card:nth-child(3) { animation-delay: 0.6s; }
+.team-card:nth-child(4) { animation-delay: 0.8s; }
+
+.team-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #ff7b00b8, #ffc300, #ffd84daa);
+  transition: height 0.3s ease;
+}
+
+.team-card:hover::before {
+  height: 10px;
+}
+
+.team-card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: #ffb300;
+  cursor: pointer;
+}
+
+.team-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #ffcc00;
+}
+
+.team-card h4 {
+  color: #1a237e;
+  font-size: 1.5em;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.team-card h5 {
+  color: #bfc21b;
+  font-size: 1.3em;
+  margin: 5px 0;
+}
+
+.team-card p {
+  font-size: 1em;
+  color: #000000;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.join-section {
+  text-align: center;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.join-section p {
+  font-size: 1.5em;
+  color: #0a0808;
+  text-align: center;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+}
+
+.join-section span {
+  color: #ffcc00; 
+  font-weight: 600;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.join-section span:hover {
+  transform: scale(1.1); 
+  color: #ffb300; 
+}
+
+.join-btn {
+  background: linear-gradient(90deg, #ff7b00b8, #ffc300, #ffd84daa);
+  border: none;
+  color: #1a237e;
+  font-size: 1.8em;
+  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.join-btn:hover {
+  background: linear-gradient(90deg, #ff7b00, #ffb300, #ffd700);
+  transform: scale(1.05); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.footer {
+  background: #0b1a36;
+  color: #fff;
+  padding: 50px 20px 30px;
+  font-size: 0.95rem;
+  animation: fadeIn 1s ease-in; 
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.footer-section {
+  flex: 1 1 45%;
+  min-width: 260px;
+}
+
+.footer-section h3 {
+  color: #ffcc00;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section a {
+  color: #eaeaea;
+  line-height: 1.6;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #ffcc00;
+  transform: translateX(5px); 
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.social-links a {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  background: #ffcc00;
+  color: #000;
+  transform: scale(1.1); 
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 30px;
+  padding-top: 18px;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+
+.join-section {
+  animation: slideInFromBottom 1s ease-out; 
+}
+
+@keyframes slideInFromBottom {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.join-section p {
+  animation: textReveal 1.2s ease-out; 
+}
+
+@keyframes textReveal {
+  0% { opacity: 0; clip-path: inset(0 100% 0 0); }
+  100% { opacity: 1; clip-path: inset(0 0 0 0); }
+}
+
+.join-btn {
+  animation: bounceIn 1s ease-out 0.5s backwards; 
+}
+
+@keyframes bounceIn {
+  0% { opacity: 0; transform: scale(0.5); }
+  50% { transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+</style>
+<body>
+   <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-09%20at%2011.53.59%20AM.jpeg?updatedAt=1759996825248" alt="Sun Nexus Logo" class="nav-logo" />
+        <span class="brand-name">Sun Nexus Solutions</span>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'projects' %}">Projects</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Services
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'mentor_ship' %}">Mentorship</a></li>
+            <!-- <li><a class="dropdown-item" href="#">Custom Website Development</a></li> -->
+            <li><a class="dropdown-item" href="{% url 'web_dev' %}">Website Development</a></li>
+          </ul>
+        </li>
+        <li><a href="{% url 'about_us' %}">About Us</a></li>
+      </ul>
+
+      <div class="menu-toggle" id="menuToggle">
+        ☰
+      </div>
+    </nav>
+  </header>
+    <div class="container">
+        <div class="row">
+            <!-- <div class="banner-section animate__animated animate__fadeInDown col-12" id="bannerSection">
+                <h1 class="banner-heading animate__animated animate__bounceIn">OUR MISSION</h1>
+            </div> -->
+            <div class="who-we-are-section animate__animated animate__slideInLeft">
+                <h2 class="section-heading">Who We Are?</h2>
+                <p class="section-text">"At<span> Sun Nexus Solutions</span>, we are a student-driven tech club dedicated to bridging the gap between academia and industry through cutting-edge projects and collaborations. Our team thrives on innovation, research, and real-world applications, empowering students to develop practical skills while delivering solutions that make an impact."</p>
+                <div class="feature-cards">
+                    <div class="card">
+                        <h3>Multidisciplinary</h3>
+                        <p>Explore AI, software  and data science, providing hands-on experience across fields to develop real-world solutions.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Industry-Oriented Projects</h3>
+                        <p>We solve real-world challenges through automation, AI-driven solutions, and scalable applications.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Collaboration & Growth</h3>
+                        <p>We provide a learning-driven environment for students, mentors, and professionals to engage and grow.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="team-section animate__animated animate__slideInRight">
+                <h2 class="section-heading">Meet Our Team</h2>
+                <div class="team-grid">
+                     <div class="team-card animate__animated animate__zoomIn ">
+                        <img src="https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.37.00%20AM.jpeg?updatedAt=1760072973049" alt="Founder" class="team-image">
+                        <h4>Founder</h4>
+                        <h5>Murali Krishna</h5>
+                        <p>Founder of Nexus Solutions.</p>
+                    </div>
+                      <div class="team-card animate__animated animate__zoomIn  ">
+                        <img src="https://ik.imagekit.io/kofq4cdghu/IMG-20250917-WA0086(1).jpg?updatedAt=1760094980018" alt="Co-Founder" class="team-image">
+                        <h4>Co-Founder</h4>
+                        <h5>Varshith Naidu</h5>
+                        <p>Co-founder of Nexus Solutions.</p>
+                    </div>
+                    <div class="team-card animate__animated animate__zoomIn  ">
+                        <img src="https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.29.51%20AM.jpeg?updatedAt=1760072973494" alt="Club President" class="team-image">
+                        <h4>Club President :</h4>
+                        <h5>Bharath Kumar.K</h5>
+                        <p>Leading the vision and direction of Nexus Solutions.</p>
+                    </div>
+                    <div class="team-card animate__animated animate__zoomIn ">
+                        <img src="https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.27.49%20AM.jpeg?updatedAt=1760072972669" alt="Vice President" class="team-image">
+                        <h4>Vice President :</h4>
+                        <h5>Jaya Manideep.B</h5>
+                        <p>Overseeing operations and project execution.</p>
+                    </div>
+                    <div class="team-card animate__animated animate__zoomIn  ">
+                        <img src="https://ik.imagekit.io/kofq4cdghu/WhatsApp%20Image%202025-10-10%20at%2010.37.49%20AM.jpeg?updatedAt=1760072973031" alt="Vice President" class="team-image">
+                        <h4>Vice President :</h4>
+                        <h5>Deekshitha.M</h5>
+                        <p>Overseeing operations and project execution.</p>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="join-section animate__animated animate__fadeInUp">
+                <h2 class="section-heading">Why Sun Join Nexus Solution?</h2>
+                <p>At<span> Nexus Solutions</span>, we provide a dynamic platform for students to gain <span>real-world experience</span> by working on live projects
+                    that align with industry standards. Our collaborative community fosters innovation, allowing you to connect with like-
+                    minded peers, mentors, and industry professionals who help you refine your skills. Beyond learning, we focus on
+                     <span>professional growth</span>, helping you build a strong portfolio, enhance your technical expertise, and boost your career
+                    prospects in cutting-edge fields like Al, software development, and loT. 
+                    </p>
+               <a href="/getintouch"> <button class="join-btn">Join Now</button> </a>
+            </div>
+        </div>
+    </div>
+     <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section contact">
+        <h3>📧 Contact Us</h3>
+        <p><a href="mailto:sunnexussolutions@gmail.com">sunnexussolutions@gmail.com</a></p>
+        <p>School of Computer Science &amp; Engineering,<br>Sandip University, Nashik</p>
+      </div>
+
+      <div class="footer-section follow">
+        <h3>🔗 Follow Us</h3>
+        <p>Stay connected with us for updates, project showcases, and collaborations.</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/sunnexussolutions/" aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://www.instagram.com/sun_nexus_solutions/" aria-label="Instagram">Instagram</a>
+          <a href="https://github.com/sunnexussolutions" aria-label="GitHub">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Sun Nexus Solutions. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+<script>document.addEventListener("DOMContentLoaded", () => {
+ 
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const isExpanded = navLinks.classList.contains("active");
+      menuToggle.setAttribute("aria-expanded", isExpanded);
+      menuToggle.textContent = isExpanded ? "✕" : "☰"; 
+    });
+
+   
+    $('.dropdown-toggle').dropdown();
+  } else {
+    console.error("Menu toggle or nav links not found in the DOM.");
+  }
+
+  
+  const heroSection = document.querySelector(".hero");
+  const animatableSections = document.querySelectorAll(".who-we-are-section, .team-section, .join-section");
+
+
+  function isHeroInViewport() {
+    if (!heroSection) return false;
+    const rect = heroSection.getBoundingClientRect();
+    return rect.top >= 0 && rect.bottom <= window.innerHeight;
+  }
+
+  
+  function applyAnimations() {
+    if (!isHeroInViewport()) {
+      animatableSections.forEach(section => {
+        if (section && !section.classList.contains("animate__animated")) {
+          if (section.classList.contains("who-we-are-section")) {
+            section.classList.add("animate__animated", "animate__slideInLeft");
+          } else if (section.classList.contains("team-section")) {
+            section.classList.add("animate__animated", "animate__slideInRight");
+          } else if (section.classList.contains("join-section")) {
+            section.classList.add("animate__animated", "animate__fadeInUp");
+          }
+        }
+      });
+    }
+  }
+
+  window.addEventListener("scroll", () => {
+    applyAnimations();
+  });
+
+
+  applyAnimations();
+
+  
+  if (heroSection && isHeroInViewport()) {
+    heroSection.classList.add("animate__animated", "animate__fadeIn");
+  }
+});</script>
+</html>
